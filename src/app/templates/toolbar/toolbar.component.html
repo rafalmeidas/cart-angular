@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button aria-label="menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Cart v2</span>
+  <span class="example-spacer"></span>
+  <button
+    class="cart"
+    mat-icon-button
+    aria-label="my cart icon"
+    title="Meu Carrinho"
+  >
+    <mat-icon
+      [matBadge]="count"
+      [matBadgeHidden]="count === 0"
+      matBadgeColor="warn"
+      >shopping_cart</mat-icon
+    >
+  </button>
+</mat-toolbar>

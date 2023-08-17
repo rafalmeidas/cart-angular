@@ -1,0 +1,15 @@
+<h2>Product List</h2>
+
+<div *ngIf="isProcessing; else content">Carregando...</div>
+
+<ng-template #content>
+  <ul class="list">
+    <li *ngFor="let product of products" class="item-list">
+      <app-product-card
+        [product]="product"
+        (onAddCart)="addToCart($event)"
+        [showInput]="true"
+      ></app-product-card>
+    </li>
+  </ul>
+</ng-template>

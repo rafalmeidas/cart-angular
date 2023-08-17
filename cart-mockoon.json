@@ -1,0 +1,89 @@
+{
+  "uuid": "ad42d46f-2b10-4751-818d-819bba106c48",
+  "lastMigration": 25,
+  "name": "Cart mockoon",
+  "endpointPrefix": "api/",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "0.0.0.0",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "17fe98f1-a093-494f-b41b-f07f79e0fbfd",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "products",
+      "responses": [
+        {
+          "uuid": "e0cbcc85-48d5-4366-9803-7e9de02a36e3",
+          "body": "[\n  {\n    \"id\": 1, \n    \"name\": \"Smart TV LG 55 Polegadas OLED evo 4K UHD aaaaa aaaaaa aaaaa aaaaa aaaaaaaaa aaaaaaaaaaaaaaaaaaaaa\",\n    \"url\": \"https://images.kabum.com.br/produtos/fotos/372246/smart-tv-lg-55-4k-oled55c2-evo-4x-hdmi-3x-usb-wifi-bluetooth-thinqai-google-assistente-alexa-titaniu-gray-oled55c2psa_1659358245_gg.jpg\",\n    \"price\": 5399.99,\n    \"quantity\": 10\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Console Sony Playstation 5\",\n    \"url\": \"https://images.kabum.com.br/produtos/fotos/238671/console-sony-playstation-5_1634132554_gg.jpg\",\n    \"price\": 3599.91,\n    \"quantity\": 2\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Controle Sony DualSense PS5\",\n    \"url\": \"https://images.kabum.com.br/produtos/fotos/287649/controle-sem-fio-sony-ps5-dualsense-starlight-blue-3006454_1639496265_gg.jpg\",\n    \"price\": 469.99,\n    \"quantity\": 7\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "17fe98f1-a093-494f-b41b-f07f79e0fbfd"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": []
+}

@@ -1,0 +1,47 @@
+<mat-card class="product-card">
+  <img
+    class="product-image"
+    mat-card-image
+    [src]="product.url"
+    [alt]="product.name"
+    [title]="product.name"
+  />
+  <mat-card-footer class="product-details">
+    <div class="wrapper-product-name">
+      <h2 class="product-name">{{ product.name }}</h2>
+    </div>
+    <span class="product-price">R$ {{ product.price }}</span>
+  </mat-card-footer>
+  <mat-card-actions class="product-actions">
+    <div *ngIf="showInput" class="change">
+      <button
+        mat-mini-fab
+        aria-label="remove amount"
+        [disabled]="product.amount === 1"
+        (click)="removeAmount()"
+      >
+        <mat-icon>remove</mat-icon>
+      </button>
+      <input
+        *ngIf="showInput"
+        type="number"
+        [(ngModel)]="product.amount"
+        min="1"
+        [max]="product.quantity"
+        step="1"
+      />
+      <button mat-mini-fab aria-label="add amount" (click)="addAmount()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <button
+      mat-flat-button
+      extended
+      color="primary"
+      (click)="onAddToCartClick()"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+      COMPRAR
+    </button>
+  </mat-card-actions>
+</mat-card>
