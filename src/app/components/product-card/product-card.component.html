@@ -34,14 +34,9 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
-    <button
-      mat-flat-button
-      extended
-      color="primary"
-      (click)="onAddToCartClick()"
-    >
+    <button mat-flat-button extended color="primary" (click)="onEmit()">
       <mat-icon>shopping_cart</mat-icon>
-      COMPRAR
+      {{ label }}
     </button>
   </mat-card-actions>
 </mat-card>

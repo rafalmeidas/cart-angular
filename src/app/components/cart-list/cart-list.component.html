@@ -1,1 +1,23 @@
-<p>cart-list works!</p>
+<div *ngIf="cartItems.length === 0">
+  <app-alert type="info"> Não há produtos no carrinho 😞</app-alert>
+</div>
+
+<div *ngIf="cartItems.length > 0">
+  <div>
+    <span *ngFor="let product of cartItems">
+      {{ product.price }} * {{ product.amount }} =
+      {{ product.price * product.amount }}
+    </span>
+  </div>
+
+  <div class="list">
+    <app-product-card
+      *ngFor="let product of cartItems; let i = index"
+      class="item-list"
+      label="remover"
+      (onAddCart)="removeToCart(i)"
+      [product]="product"
+      [showInput]="true"
+    ></app-product-card>
+  </div>
+</div>

@@ -1,52 +1,60 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { Cart } from 'src/app/models/cart.model';
+import { ProductView } from '../../types/product-view.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cartItems: Cart[] = [];
+  private products: ProductView[] = [];
   itemCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  sum: number = 0;
 
-  addToCart(item: Cart) {
-    const existingProduct = this.cartItems.find(
-      ({ product }) => product.id === item.product.id
+  addToCart(item: ProductView) {
+    const existingProduct = this.products.find(
+      (product) => product.id === item.id
     );
 
     if (!existingProduct) {
-      this.cartItems.push(item);
+      this.products.push(item);
 
       this.updateItemCount();
       return;
     }
 
-    this.cartItems = this.cartItems.map((cartItem) => {
-      const { product } = cartItem;
-      if (product.id === item.product.id) {
-        return { ...item, amount: cartItem.amount + item.amount };
+    this.products = this.products.map((product) => {
+      if (product.id === item.id) {
+        return { ...item, amount: product.amount + item.amount };
       }
 
       this.updateItemCount();
-      return cartItem;
+      return product;
     });
   }
 
   removeToCart(index: number) {
-    this.cartItems.splice(index, 1);
+    this.products.splice(index, 1);
     this.updateItemCount();
   }
 
-  getItems(): Cart[] {
-    return this.cartItems;
+  getItems(): ProductView[] {
+    return this.products;
+  }
+
+  sumCalc(): number {
+    this.products.map(({ price, amount }) =>
+      console.log(price + ' * ' + amount)
+    );
+
+    return 0;
   }
 
   clearCart() {
-    this.cartItems = [];
+    this.products = [];
   }
 
   private updateItemCount(): void {
-    this.itemCount.next(this.cartItems.length);
+    this.itemCount.next(this.products.length);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { ProductView } from './types';
+import { ProductView } from '../../types/product-view.model';
 
 @Component({
   selector: 'app-product-card',
@@ -8,6 +8,7 @@ import { ProductView } from './types';
   styleUrls: ['./product-card.component.scss'],
 })
 export class ProductCardComponent {
+  @Input() label: string = 'Label';
   @Input() product!: ProductView;
   @Input() showInput: boolean = false;
   @Output() onAddCart: EventEmitter<ProductView> =
@@ -15,7 +16,7 @@ export class ProductCardComponent {
   @Output() onUpdateAmount: EventEmitter<ProductView> =
     new EventEmitter<ProductView>();
 
-  onAddToCartClick() {
+  onEmit() {
     this.onAddCart.emit(this.product);
   }
 

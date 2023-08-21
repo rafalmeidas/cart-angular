@@ -5,9 +5,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { ProductListModule } from './components/product-list/product-list.module';
 import { TemplatesModule } from './templates/templates.module';
-import { CartModule } from './components/cart/cart.module';
+import { HomeModule } from './pages/home/home.module';
 
 import { AppComponent } from './app.component';
 
@@ -19,8 +18,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     TemplatesModule,
-    CartModule,
-    ProductListModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

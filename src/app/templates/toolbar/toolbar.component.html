@@ -13,13 +13,15 @@
   >
     <mat-icon
       [matBadge]="count"
-      [matBadgeHidden]="count === 0"
+      [matBadgeHidden]="isCountZero()"
+      aria-hidden="false"
+      role="img"
       matBadgeColor="warn"
       >shopping_cart</mat-icon
     >
   </button>
   <mat-menu #menu="matMenu">
     <app-cart-list></app-cart-list>
-    <button mat-menu-item>Ver carrinho</button>
+    <button mat-menu-item routerLink="/cart">Ver carrinho</button>
   </mat-menu>
 </mat-toolbar>

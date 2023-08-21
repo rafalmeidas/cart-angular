@@ -4,9 +4,7 @@ import { Subscription } from 'rxjs';
 import { ProductService } from 'src/app/services/product/product.service';
 import { CartService } from 'src/app/services/cart/cart.service';
 
-import { Cart } from 'src/app/models/cart.model';
-
-import { ProductView } from './types';
+import { ProductView } from '../../types/product-view.model';
 
 @Component({
   selector: 'app-product-list',
@@ -24,19 +22,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
     private cartService: CartService
   ) {}
 
-  loadApi() {
-    this.isProcessing = true;
-    const subscription = this.productService.getProducts().subscribe({
-      next: (data) =>
-        (this.products = data.map((product) => ({ ...product, amount: 1 }))),
-      error: (error) =>
-        console.error('Erro ao obter os produtos da API falsa:', error),
-      complete: () => (this.isProcessing = false),
-    });
-
-    this.subscriptions.push(subscription);
-  }
-
   ngOnInit() {
     this.loadApi();
   }
@@ -45,9 +30,20 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
+  private loadApi() {
+    this.isProcessing = true;
+    const subscription = this.productService.getProducts().subscribe({
+      next: (data) =>
+        (this.products = data.map((product) => ({ ...product, amount: 1 }))),
+      error: () => (this.isProcessing = false),
+      complete: () => (this.isProcessing = false),
+    });
+
+    this.subscriptions.push(subscription);
+  }
+
   addToCart(item: ProductView) {
-    const cartItem: Cart = { product: item, amount: item.amount };
-    this.cartService.addToCart(cartItem);
+    this.cartService.addToCart(item);
     item.amount = 1;
   }
 }

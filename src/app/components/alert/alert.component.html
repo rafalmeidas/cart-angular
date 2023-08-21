@@ -1,0 +1,19 @@
+<div
+  class="alert"
+  [ngClass]="[typeClass, title ? 'display-column' : 'display-row']"
+>
+  <div class="content-title" *ngIf="title">
+    <div class="content-icon">
+      <mat-icon class="icon" role="img" matBadgeColor="warn">{{
+        icon
+      }}</mat-icon>
+    </div>
+    <div class="title">{{ title }}</div>
+  </div>
+  <div class="content-icon" *ngIf="!title">
+    <mat-icon class="icon" role="img" matBadgeColor="warn">{{ icon }}</mat-icon>
+  </div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>

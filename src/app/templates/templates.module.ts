@@ -8,23 +8,23 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 
 import { CartListModule } from '../components/cart-list/cart-list.module';
-import { CartModule } from '../components/cart/cart.module';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MainComponent } from './main/main.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ToolbarComponent, MainComponent],
   exports: [ToolbarComponent, MainComponent],
   imports: [
     CommonModule,
-    CartModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatBadgeModule,
     MatMenuModule,
     CartListModule,
+    RouterModule,
   ],
 })
 export class TemplatesModule {}

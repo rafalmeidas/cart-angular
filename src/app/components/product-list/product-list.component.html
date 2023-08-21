@@ -2,14 +2,18 @@
 
 <div *ngIf="isProcessing; else content">Carregando...</div>
 
+<div *ngIf="products.length === 0 && !isProcessing">
+  <app-alert type="info"> A consulta não retornou resultados. </app-alert>
+</div>
+
 <ng-template #content>
-  <ul class="list">
-    <li *ngFor="let product of products" class="item-list">
-      <app-product-card
-        [product]="product"
-        (onAddCart)="addToCart($event)"
-        [showInput]="true"
-      ></app-product-card>
-    </li>
-  </ul>
+  <div class="list">
+    <app-product-card
+      *ngFor="let product of products"
+      label="COMPRAR"
+      [product]="product"
+      (onAddCart)="addToCart($event)"
+      [showInput]="true"
+    ></app-product-card>
+  </div>
 </ng-template>
